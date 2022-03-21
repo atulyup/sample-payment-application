@@ -1,0 +1,89 @@
+<div class="row main-class">
+    <div class="col-6"><img src="../../assets/real-time-payments-promo.jpg" style="height: 100%;width: 100%;"></div>
+    <div class="col-5 background-black">
+        <mat-card style="height: 65%;">
+            <mat-card-title align='center'>Pay Bills</mat-card-title>
+            <mat-card-subtitle align='center'> <strong>Use Money from Online Payment Wallet to pay your bills</strong>
+            </mat-card-subtitle>
+            <mat-card class="marg-5">
+                <div class="row">
+                    <div class="col-6">
+                        Available Balance : <strong>Rs {{availableBalance||0}} </strong>
+                    </div>
+                </div>
+            </mat-card>
+
+            <mat-card class="marg-5">
+                    <div class="row pad-5">
+                        <div class="col-2 center">
+                            <strong>Payment Type</strong>
+                        </div>
+                        <div class="col-4 font-12">
+                            <mat-form-field appearance="outline">
+                                <mat-select [(ngModel)]="paymentType" name="paymentType">
+                                    <mat-option *ngFor="let pay of typeOfPayments" [value]="pay.showVal">
+                                        {{pay.showVal}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <mat-radio-group [(ngModel)]="payLater">
+                            <mat-radio-button class="ind-radio" value="false">Pre-paid</mat-radio-button>
+                            <mat-radio-button class="ind-radio" value="true">Post-Paid</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div class="row pad-5">
+                        <div class="col-2 center">
+                            <strong>Operator</strong>
+                        </div>
+                        <div class="col-4 font-12">
+                            <mat-form-field appearance="outline">
+                                <input matInput [(ngModel)]="operator">
+                            </mat-form-field>
+    
+                        </div>
+
+                    </div>
+                    <div class="row pad-5">
+                        <div class="col-2 center">
+                            <strong>Mobile No</strong>
+                        </div>
+                        <div class="col-4 font-12">
+                            <mat-form-field appearance="outline">
+                                <input matInput [(ngModel)]="phoneNumber">
+                            </mat-form-field>
+    
+                        </div>
+
+                    </div>
+                    <div class="row pad-5">
+                        <div class="col-2 center">
+                            <strong>Amount</strong>
+                        </div>
+                        <div class="col-4 font-12">
+                            <mat-form-field appearance="outline">
+                                <input matInput [(ngModel)]="amount">
+                            </mat-form-field>
+    
+                        </div>
+
+                    </div>
+
+            </mat-card>
+            <div class="row pad-5" style="justify-content: center;">
+                <div class="col-3">
+                    <button mat-raised-button class="btn-deloitte" (click)="payBills()">Proceed</button>
+                </div>
+            </div>
+    
+        </mat-card>
+
+    </div>
+    <div class="col-1 background-black">
+    </div>
+    
+</div>

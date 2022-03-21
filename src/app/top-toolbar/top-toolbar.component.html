@@ -1,0 +1,12 @@
+<mat-toolbar class="toolbar-heading">
+    <mat-toolbar-row>
+      <div class="toolbar-img"><img src="../../assets/deloitte_logo_2.png"></div>
+      <div class="toolbar-button"><button mat-button *ngIf="!loggedUser" (click)="redirectLogin()">Login</button></div>
+      <div class="toolbar-button"><button mat-button *ngIf="!loggedUser" (click)="redirectRegister()">Registration</button></div>
+      <div class="toolbar-button"><button mat-button *ngIf="loggedUser" (click)="navigateToUrl('home')">Top-Up</button></div>
+      <div class="toolbar-button"><button mat-button *ngIf="loggedUser" (click)="navigateToUrl('transfers')">Transfer Money</button></div>
+      <div class="toolbar-button"><button mat-button *ngIf="loggedUser" (click)="navigateToUrl('pay')">Pay Bills</button></div>
+      <div class="toolbar-button"><button mat-button *ngIf="loggedUser" (click)="navigateToUrl('transactions')">Transaction History</button></div>
+      <div class="toolbar-button"><button mat-button *ngIf="loggedUser" (click)="logOut()">Log Out</button></div>
+    </mat-toolbar-row>
+  </mat-toolbar>

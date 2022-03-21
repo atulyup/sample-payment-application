@@ -1,0 +1,130 @@
+<div class="row main-class">
+    <div class="col-6"><img src="../../assets/real-time-payments-promo.jpg" style="height: 100%;width: 100%;"></div>
+    <div class="col-5 background-black">
+        <form [formGroup]="topUpForm">
+
+        <mat-card style="height: 90%;">
+            <mat-card-title align='center'>Top-up Wallet</mat-card-title>
+            <mat-card-subtitle align='center'><strong>Top-up Money to Online Payment Wallet</strong></mat-card-subtitle>
+            <mat-card class="marg-5">
+                <div class="row">
+                    <div class="row pad-5">
+                        <div class="col-2">
+                           <strong> Add Amount: </strong>
+                        </div>
+                    </div>
+                    <div class="row pad-5">
+                        <div class="col-4">
+                            <mat-form-field appearance="outline">
+                                <input matInput id="numbersButton" formControlName="amountAdded" (keypress)="numbersOnly($event)">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
+            <mat-card class="marg-5">
+                <div class="row">
+                    <div class="row pad-5">
+                        <div class="col-4">
+                            <strong>Card Type</strong>
+                        </div>
+                    </div>
+
+                    <div class="row pad-5">
+                        <div class="col-2 pointer" [ngClass]="{'background-blur': (f.cardType.value =='Mastercard' || f.cardType.value =='American Express') || ''} "  (click)="selectCardType('Visa')">
+                            <img src="../../assets/download.png">
+                        </div>
+                        <div class="col-2 pointer" [ngClass]="{'background-blur': (f.cardType.value =='Visa' || f.cardType.value =='American Express') || ''} " (click)="selectCardType('Mastercard')">
+                            <img src="../../assets/download (1).png">
+                        </div>
+                        <div class="col-2 pointer" [ngClass]="{'background-blur': (f.cardType.value =='Mastercard' || f.cardType.value =='Visa') || ''} " (click)="selectCardType('American Express')">
+                            <img src="../../assets/download (2).png">
+                        </div>
+                    </div>
+
+                    <div class="row pad-5">
+                        <div class="col-4">
+                            <strong>Card Holder Name</strong>
+                        </div>
+                    </div>
+
+                    <div class="row pad-5">
+                        <div class="col-10 font-12">
+                            <mat-form-field appearance="outline">
+                                <input matInput type='text' formControlName="nameCardHolder" (keypress)="lettersOnly($event)">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row pad-5">
+                        <div class="col-2">
+                            <strong>Card Number</strong>
+                        </div>
+                    </div>
+
+                    <div class="row pad-5">
+                        <div class="col-10 font-12">
+                            <mat-form-field appearance="outline">
+                                <input matInput maxlength="16" formControlName="cardNumber" (keypress)="numbersOnly($event)">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row pad-5">
+                        <div class="col-2">
+                            <strong>Expiry Date</strong>
+                        </div>
+                    </div>
+
+                    <div class="row pad-5">
+                        <div class="col-3 font-12">
+                            <mat-form-field appearance="outline">
+                                <mat-select formControlName="selectedMonth" name="month">
+                                    <mat-option *ngFor="let month of months" [value]="month.value">
+                                        {{month.value}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-2 font-12">
+                            <mat-form-field appearance="outline">
+                                <mat-select formControlName="selectedYear" name="year">
+                                    <mat-option *ngFor="let yea of year" [value]="yea">
+                                        {{yea}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row pad-5">
+                        <div class="col-2">
+                            <strong>CVV</strong>
+                        </div>
+                    </div>
+
+                    <div class="row pad-5">
+                        <div class="col-5 font-12">
+                            <mat-form-field appearance="outline">
+                                <input matInput type='password' maxlength="3" formControlName="cvv" (keypress)="numbersOnly($event)">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
+            <div class="row pad-5" style="justify-content: center;">
+                <div class="col-3">
+                    <button mat-raised-button class="w-100" type="reset" (click)="resetForm()">Cancel</button>
+                </div>
+                <div class="col-3">
+                    <button mat-raised-button class="btn-deloitte" type="button" (click)="addMoney()" [disabled]="!checkFormValid()">Add</button>
+                </div>
+            </div>
+
+        </mat-card>
+        </form>
+
+    </div>
+    <div class="col-1 background-black">
+
+    </div>

@@ -1,0 +1,41 @@
+<div class="row main-class">
+    <div class="col-6"><img src="../../assets/real-time-payments-promo.jpg" style="height: 100%;width: 100%;"></div>
+    <div class="col-3 background-black"> </div>
+    <div class="col-3 background-black">
+        <mat-card style="margin-top:50%">
+            <mat-card-content>
+                <mat-card-title>LOGIN</mat-card-title>
+                <form [formGroup]="form">
+                    <p>
+                        <mat-form-field appearance="outline">
+                            <input type="text" matInput maxLength='10' placeholder="Phone Number" formControlName="username">
+                        </mat-form-field>
+                    </p>
+                    <p *ngIf="f.username.errors?.invalid && f.username.errors?.required|| f.username.errors?.pattern && formSubmitted" class="error">
+                        Please enter 10 digit mobile number
+                    </p>
+
+
+                    <p>
+                        <mat-form-field appearance="outline">
+                            <input type="password" matInput placeholder="Password" formControlName="password">
+                        </mat-form-field>
+                    </p>
+                    <p *ngIf="f.password.errors?.required && formSubmitted" class="error">
+                        Please enter a valid password.
+                    </p>
+
+                    <p *ngIf="error" class="error">
+                        {{ error }}
+                    </p>
+
+                    <div class="button">
+                        <button type="button" (click)="submit()" class="btn-deloitte" mat-raised-button>Login</button>
+                    </div>
+
+                </form>
+            </mat-card-content>
+        </mat-card>
+
+
+    </div>
